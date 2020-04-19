@@ -5,6 +5,8 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.widget.RemoteViews;
 
+import io.paperdb.Paper;
+
 /**
  * Implementation of App Widget functionality.
  */
@@ -13,7 +15,14 @@ public class MyWidget extends AppWidgetProvider {
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
-        CharSequence widgetText = context.getString(R.string.appwidget_text);
+        //CharSequence widgetText = context.getString(R.string.appwidget_text);
+        // Init Paper
+        Paper.init(context);
+
+        // Read Content
+        String title = Paper.book().read("title");
+        String content = Paper.book().read("content");
+
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.my_widget);
         views.setTextViewText(R.id.appwidget_text, widgetText);
