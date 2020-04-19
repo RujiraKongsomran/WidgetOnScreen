@@ -3,4 +3,6 @@
     <string name="title">Title</string>
     <string name="content">Content</string>
     <string name="save">Save</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>
